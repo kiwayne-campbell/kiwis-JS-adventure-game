@@ -21,8 +21,6 @@ let init = () => {
   Input.init();
 }
 
-
-
 let main = () => {
   // Here's where we handle all the input, logic and drawing to the screen per frame.
 
