@@ -25,9 +25,9 @@ let main = () => {
   // Here's where we handle all the input, logic and drawing to the screen per frame.
 
   // rectangle example for canvas
-  // ctx.clearRect(0,0, 256, 224);
+  ctx.clearRect(0,0, 256, 224);
   // ctx.fillStyle = "#117c09";
-  // ctx.fillRect(x,0,50,50);
+  // ctx.fillRect(0,0,50,50);
 
   ctx.drawImage(buddha, player.x, player.y);  
 
