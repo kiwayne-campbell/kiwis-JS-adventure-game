@@ -44,7 +44,15 @@ let init = () => {
   // Here's where we handle all the input, logic and drawing to the screen per frame.
 let main = () => {
 
+    // the time in ms of each loop
+    let now = window.performance.now();
+    
+      // how much time since last sequence ran
+      let timeElapsed = (now - lastTime);
 
+      // store the current time as now
+      lastTime = now
+      
     // move character
   // up
   if (key[2]) {
@@ -71,22 +79,13 @@ let main = () => {
   // ctx.fillStyle = "#117c09";
   // ctx.fillRect(0,0,50,50);
 
-  // the time in ms of each loop
-  let now = window.performance.now();
-
-  // how much time since last sequence ran
-  let timeElapsed = (now - lastTime) / 1000;
-
-  // store the current time as now
-  lastTime = now
-
   // loop through the walking sequence
   var spritePos = player.sequence[player.sequenceIdx] * 16;
 
   timeSinceLastFrameSwap += timeElapsed;
 
   // has enough time passed since last frame?
-  // if( timeSinceLastFrameSwap > player.animationUpdateTime ) {
+  if( timeSinceLastFrameSwap > player.animationUpdateTime ) {
 
     // enough time has passed display next frame
     if (player.sequenceIdx < player.sequence.length - 1 ){
@@ -97,7 +96,7 @@ let main = () => {
 
     // reset animation counter
     timeSinceLastFrameSwap = 0;
-  // }
+  }
 
   ctx.drawImage(buddha, spritePos, 0,16,25, player.x, player.y, 16, 25 );  
     
